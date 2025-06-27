@@ -46,32 +46,16 @@
       border-radius: 4px;
       font-size: 14px;
     }
-    .section {
-      width: 100vw;
-      min-height: 100vh;
-      background-size: contain;
-      background-position: center top;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 80px;
-      padding-bottom: 20px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    .image-slide {
+      width: 100%;
+      padding-top: 70px;
     }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .image-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     @media screen and (max-width: 768px) {
-      .section {
-        background-size: contain;
-        background-position: top center;
-        padding-top: 80px;
-        padding-bottom: 10px;
-      }
       header .nav {
         flex-direction: column;
         gap: 10px;
@@ -89,16 +73,16 @@
     </div>
   </header>
 
-  <div class="section" style="background-image: url('1.png');"></div>
-  <div class="section" style="background-image: url('2.png');"></div>
-  <div class="section" style="background-image: url('3.png');"></div>
-  <div class="section" style="background-image: url('4.png');"></div>
-  <div class="section" style="background-image: url('5.png');"></div>
-  <div class="section" style="background-image: url('6.png');"></div>
-  <div class="section" style="background-image: url('7.png');"></div>
-  <div class="section" style="background-image: url('8.png');"></div>
-  <div class="section" style="background-image: url('9.png');"></div>
-  <div class="section" style="background-image: url('10.png');"></div>
+  <div class="image-slide"><img src="1.png" alt="Trang 1"></div>
+  <div class="image-slide"><img src="2.png" alt="Trang 2"></div>
+  <div class="image-slide"><img src="3.png" alt="Trang 3"></div>
+  <div class="image-slide"><img src="4.png" alt="Trang 4"></div>
+  <div class="image-slide"><img src="5.png" alt="Trang 5"></div>
+  <div class="image-slide"><img src="6.png" alt="Trang 6"></div>
+  <div class="image-slide"><img src="7.png" alt="Trang 7"></div>
+  <div class="image-slide"><img src="8.png" alt="Trang 8"></div>
+  <div class="image-slide"><img src="9.png" alt="Trang 9"></div>
+  <div class="image-slide"><img src="10.png" alt="Trang 10"></div>
 
   <!-- Zalo Chat Widget -->
   <script src="https://sp.zalo.me/plugins/sdk.js"></script>
@@ -123,22 +107,6 @@
       js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  </script>
-
-  <script>
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-    sections.forEach(section => {
-      observer.observe(section);
-    });
   </script>
 </body>
 </html>
