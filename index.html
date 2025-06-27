@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LANDCHAIN - Landing Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: sans-serif;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    header .nav {
+      display: flex;
+      gap: 15px;
+    }
+    header .nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .section {
+      width: 100vw;
+      min-height: 100vh;
+      background-size: contain;
+      background-position: center top;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 80px;
+      padding-bottom: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media screen and (max-width: 768px) {
+      .section {
+        background-size: contain;
+        background-position: top center;
+        padding-top: 80px;
+        padding-bottom: 10px;
+      }
+      header .nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LANDCHAIN</div>
+    <div class="nav">
+      <a href="#" onclick="alert('Chức năng đang phát triển')">Đăng ký</a>
+      <a href="#" onclick="alert('Gửi email đến: contact@exabyte.vn')">Liên hệ</a>
+      <a href="#" onclick="alert('Tải tài liệu PDF hoặc gửi yêu cầu')">Tải tài liệu</a>
+    </div>
+  </header>
+
+  <div class="section" style="background-image: url('1.png');"></div>
+  <div class="section" style="background-image: url('2.png');"></div>
+  <div class="section" style="background-image: url('3.png');"></div>
+  <div class="section" style="background-image: url('4.png');"></div>
+  <div class="section" style="background-image: url('5.png');"></div>
+  <div class="section" style="background-image: url('6.png');"></div>
+  <div class="section" style="background-image: url('7.png');"></div>
+  <div class="section" style="background-image: url('8.png');"></div>
+  <div class="section" style="background-image: url('9.png');"></div>
+  <div class="section" style="background-image: url('10.png');"></div>
+
+  <!-- Zalo Chat Widget -->
+  <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+  <div class="zalo-chat-widget" data-oaid="579745863508352884" data-welcome-message="Xin chào! LANDCHAIN có thể giúp gì cho bạn?" data-autopopup="0" data-width="350" data-height="420" style="position: fixed; bottom: 20px; right: 20px;"></div>
+
+  <!-- Messenger Plugin -->
+  <div id="fb-root"></div>
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "100057496837757");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({ xfbml: true, version: 'v13.0' });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
